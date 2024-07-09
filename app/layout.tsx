@@ -1,23 +1,27 @@
-'use client';
+"use client";
 
-import { usePathname } from 'next/navigation';
-import gsap from 'gsap';
-import { ScrollSmoother } from 'gsap-trial/dist/ScrollSmoother';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { Inter } from 'next/font/google';
-import { useGSAP } from '@gsap/react';
+import { usePathname } from "next/navigation";
+import gsap from "gsap";
+import { ScrollSmoother } from "gsap-trial/dist/ScrollSmoother";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { Inter } from "next/font/google";
+import { useGSAP } from "@gsap/react";
 
-import Header from '@/components/Header';
+import Header from "@/components/Header";
 
-import './globals.css';
+import "./globals.css";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
-if (typeof window !== 'undefined') {
+if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother, useGSAP);
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const pathname = usePathname();
 
   useGSAP(
